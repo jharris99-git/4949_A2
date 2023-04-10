@@ -1,0 +1,79 @@
+<head>
+    <title>Insurance Cross-Sell Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f5ffff;
+            min-width: 400px;
+        }
+
+        .nav-horizontal {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            background-color: #45585B;
+            list-style-type: none;
+            font-size: 18pt;
+            font-family: "Times New Roman", serif
+        }
+
+        .page-content {
+            margin-left: 40px;
+            height: 100%;
+        }
+
+        .nav-horizontal li {
+            float: left;
+        }
+
+        .nav-horizontal li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: 1s;
+        }
+
+        .nav-horizontal li a:hover {
+            background-color: #4B939B;
+            opacity: 1;
+        }
+
+        .active {
+            background-color: #91BFC3;
+            pointer-events: none;
+        }
+
+        #title-button {
+            float: right;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<!-- templates/base.html -->
+<body>
+<ul class="nav-horizontal">
+    <li>
+        <a id="form-nav" href="{% url 'form' %}">Form</a>
+    </li>
+    <li>
+        <a id="about-nav" href="{% url 'about' %}">About</a>
+    </li>
+    <li>
+        <a href="https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction"
+           target="_blank">Data</a>
+    </li>
+    <li id="title-button">
+        <a href="">Health Insurance Cross Sell Prediction</a>
+    </li>
+</ul>
+
+<div class="page-content">
+    <h1></h1>
+    {% block content %} {% endblock content %}
+</div>
+</body>
+

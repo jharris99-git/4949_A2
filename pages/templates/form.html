@@ -1,0 +1,101 @@
+<!-- templates/form.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Form page</h1>
+
+<form action="{% url 'formPost' %}" method="POST" class="flex_box_col">
+    {% csrf_token %}
+    <div class="flex_box_row">
+        <div class="col">
+            <div class="item">
+                <h3>Gender</h3>
+                <input id="male" type="radio" name="gender" required value=0>
+                <label for="male">Male</label><br>
+                <input id="female" type="radio" name="gender" value=1>
+                <label for="female">Female</label>
+            </div>
+            <div class="item">
+                <h3>Age</h3>
+                <input id="age" type="number" name="age" style="width: 50px" required>
+                <label for="age"> years old</label>
+            </div>
+            <div class="item">
+                <h3>Current Annual Premium</h3>
+                <span class="prefix">$</span>
+                <input id="premium" type="number" name="premium" style="width: 100px" required>
+                <label for="premium"></label>
+            </div>
+            <div class="item">
+                <h3>Customer Tenure</h3>
+                <input id="vintage" type="number" name="vintage" style="width: 75px" required>
+                <label for="vintage"> days</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="item">
+                <h3>Vehicle Age</h3>
+                <input id="V<1" type="radio" name="V_AGE" required value=0>
+                <label for="V<1">Less than 1 year old</label><br>
+                <input id="V1-2" type="radio" name="V_AGE" value=1>
+                <label for="V1-2">1 to 2 years old</label><br>
+                <input id="V>2" type="radio" name="V_AGE" value=2>
+                <label for="V>2">Greater than 2 years old</label>
+            </div>
+            <div class="item">
+                <h3>Previous Vehicle Damage</h3>
+                <input type="hidden" name="v_damage" value=0 required/>
+                <input id="d_y" type="checkbox" name="v_damage" value=1>
+                <label for="d_y"></label>
+            </div>
+            <div class="item">
+                <h3>Already Has Vehicle Insurance</h3>
+                <input type="hidden" name="insured" value=0 required/>
+                <input id="insured" type="checkbox" name="insured" value=1>
+                <label for="insured"></label>
+            </div>
+        </div>
+    </div>
+
+
+    <br><br><input type="submit" value="Submit" class="center_col">
+</form>
+
+<script>
+    let element = document.getElementById("form-nav");
+    element.classList.add("active");
+</script>
+
+<style>
+    .flex_box_col {
+        display: flex;
+        flex-direction: column;
+        max-width: 1200px;
+        margin-left: 0;
+        margin-right: auto;
+        padding-right: 40px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .flex_box_row {
+        display: flex;
+        flex-direction: row;
+        max-width: 1200px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        margin-left: 50px;
+        margin-right: 50px;
+        align-items: stretch;
+        min-height: fit-content;
+        min-width: 200px;
+        justify-content: flex-start;
+    }
+
+</style>
+{% endblock content %}

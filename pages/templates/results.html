@@ -1,0 +1,42 @@
+<!-- templates/form.html -->
+{% extends "base.html" %}
+<head>
+    <title>Results</title>
+
+</head>
+
+{% block content %}
+<h1>Results page</h1>
+
+<p>Gender: {{ gender | rjust:60 }}</p>
+<p>Age: {{ age | rjust:59 }}</p>
+<p>Previously insured: {{ insured | rjust:40 }}</p>
+<p>Annual Premium: {{ premium | rjust:40 }}</p>
+<p>Customer Tenure: {{ vintage | rjust:40 }}</p>
+<p>Previous Damage: {{ v_damage | rjust:42 }}</p>
+<p>Vehicle Age: {{ v_age | rjust:"42" }}</p>
+
+
+<H3>Prediction:</H3>
+{{pred}}
+
+<script>
+    let list = document.getElementsByClassName("nav-horizontal")[0]
+    let item = document.createElement("li")
+    let link = document.createElement('a')
+    link.setAttribute("id", "results-nav")
+
+    item.appendChild(link)
+    list.insertBefore(item, list.children[2])
+    let element = document.getElementById("results-nav");
+    link.innerHTML = "Results";
+    element.classList.add("active");
+
+</script>
+<style>
+    p {
+        white-space: break-spaces
+    }
+</style>
+
+{% endblock content %}

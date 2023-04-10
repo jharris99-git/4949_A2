@@ -1,0 +1,20 @@
+<!-- templates/about.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>About page</h1>
+<script>
+    let element = document.getElementById("about-nav");
+    element.classList.add("active");
+</script>
+
+<p style="max-width: 700px; padding-right: 50px">
+    This web applications serves as a means to predict whether a cross-sale of insurance will be met with a
+     positive response. The dataset contains a database of policyholders already provided with Health Insurance under
+    this company are likely to be interested in Vehicle Insurance under the same company.<br><br>
+
+    Due to the nature of this dataset inclusive language was difficult to use, thus we have to assume that the listed
+    gender refers to the customer's legal gender/gender listed on forms. There are no gender-neutral responses, thus
+     they were unable to be accounted for in the model.
+</p>
+{% endblock content %}
